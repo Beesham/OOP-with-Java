@@ -8,9 +8,17 @@ public class EquationSolver {
 
 		double s;
 		s = evaluateEqn1(0,0,0,0);
+		System.out.println("Value of s: " + s);
 
 		double G;
-		G = evaluateEqn2(0, 0, 0, 0);
+		try {
+			G = evaluateEqn2(0, 0, 0, 0);
+			System.out.println("Value of G: " + G);
+		}catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			System.out.println("Can't divide by zero!");
+		}
+
 
 	}
 
@@ -34,14 +42,12 @@ public class EquationSolver {
 	 * @param p
 	 * @return the value evaluated
 	 */
-	public static double evaluateEqn2(double a, double m1, double m2, double p) {
+	public static double evaluateEqn2(double a, double m1, double m2, double p) throws IllegalArgumentException {
 		double m = m1 - m2;
 		final double CONST = (3/4.0) * Math.pow(Math.PI, 2);
 
 		if(!(m == 0 || p == 0)) {
 			return CONST * (Math.pow(a, 3) / ((Math.pow(p, 0.5) * m)));
-		} else System.out.println("You can't divide by zero!");
-
-		return 0;
+		} else throw new IllegalArgumentException("Divide by zero!");
 	}
 }
