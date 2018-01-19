@@ -19,7 +19,6 @@ public class EquationSolver {
 			System.out.println("Can't divide by zero!");
 		}
 
-
 	}
 
 	/**
