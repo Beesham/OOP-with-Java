@@ -13,11 +13,13 @@ public class Microwave {
 
 	/**
 	 * Increases the timer by 10 seconds
-	 * @return the new time
 	 */
-	public int increaseTime() {
-		//TODO
-		return 0;
+	public void increaseTime() {
+		time =+ 10;
+	}
+
+	public int getTime() {
+		return time;
 	}
 
 	/**
