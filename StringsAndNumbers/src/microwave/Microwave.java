@@ -25,11 +25,13 @@ public class Microwave {
 	/**
 	 * Sets the power level of the microwave: Low, Medium, High
 	 * @param powerLevel
-	 * @return
 	 */
-	public String setPowerLevel(String powerLevel) {
-		//TODO
-		return null;
+	public void setPowerLevel(String powerLevel) {
+		this.powerLevel = powerLevel;
+	}
+
+	public String getPowerLevel() {
+		return powerLevel;
 	}
 
 	/**
