@@ -31,10 +31,9 @@ public class PrimeGenerator {
 	{
 		// Complete this part
 		if(n < 1) return false;	//Any number < 1 is not a prime
-		if(n%2 == 0) return false;	//Any number that has a factor of 2 is not prime
+		if(n == 2) return true;
 
-		//Checks if 3 to n is a factor of n
-		for(int i = 3; i <= n; i++) {
+		for(int i = 2; i < n; i++) {
 			if(n%i == 0) return false;
 		}
 		return true;
