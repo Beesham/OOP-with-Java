@@ -11,7 +11,14 @@ public class PrimePrinter {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Enter upper limit: ");
 		int limit = in.nextInt();
-		// Complete this part
-		
+
+		PrimeGenerator gen = new PrimeGenerator();
+
+		int prime;
+		while((prime = gen.nextPrime()) < limit) {
+			if(prime < limit) {
+				System.out.println(prime);
+			}
+		}
 	}
 }
