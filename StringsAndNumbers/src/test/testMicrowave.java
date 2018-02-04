@@ -12,7 +12,5 @@ public class testMicrowave {
 		microwave.start();
 		microwave.stop();
 		microwave.getTime();
-
-
 	}
 }

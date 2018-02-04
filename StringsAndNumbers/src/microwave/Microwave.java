@@ -6,9 +6,13 @@ package microwave;
 public class Microwave {
 	private String powerLevel;
 	private int time;
+	private boolean stopFlag;
 
-	//Empty constructor
+	//Constructor
 	public Microwave() {
+		time = 0;
+		powerLevel = "Medium";
+		stopFlag = false;
 	}
 
 	/**
@@ -38,22 +42,24 @@ public class Microwave {
 	 * Stops the microwave
 	 */
 	public void stop() {
-		//TODO
+		stopFlag = true;
 	}
 
 	/**
 	 * Resets the microwave/timer to zero
 	 */
 	public void reset() {
-		//TODO
+		time = 0;
+		stopFlag = false;
 	}
 
 	/**
 	 * Starts the timer/microwave
-	 * @return the timer and power level
 	 */
-	public String start() {
-		//TODO
-		return null;
+	public void start() {
+		System.out.println("Cooking for " + time + " seconds at level " + powerLevel);
+		for(int i = time; i >= 0; time--) {
+			//Dec time and watch for stop flag
+		}
 	}
 }
