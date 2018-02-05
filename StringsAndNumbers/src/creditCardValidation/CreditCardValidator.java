@@ -6,7 +6,13 @@ public class CreditCardValidator {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Enter a credit card number: ");
-		String ccNumStr = in.nextLine().trim().replace(" ", "");
+		String ccNumStr = in.nextLine();
+		System.out.println(validate(ccNumStr));
+	}
+
+	public static boolean validate(String ccNumStr) {
+
+		ccNumStr = ccNumStr.trim().replace(" ", "");
 
 		int sum = 0;
 		for(int i = 0; i < ccNumStr.length(); i++) {
@@ -27,12 +33,8 @@ public class CreditCardValidator {
 
 		int finalSum = sum + sumOfEverySecondDigi + numOfEverySecondDigiMoreThanFour;
 
-		if(finalSum % 10 == 0);
-
-		System.out.println(sum);
-		System.out.println(sumOfEverySecondDigi);
-		System.out.println(numOfEverySecondDigiMoreThanFour);
-
-
+		if(finalSum % 10 == 0) return true;
+		else return false;
 	}
+
 }
