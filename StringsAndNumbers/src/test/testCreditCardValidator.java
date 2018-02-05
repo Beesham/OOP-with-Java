@@ -9,11 +9,10 @@ public class testCreditCardValidator {
 		String ccNum3 = "4012 8888 8888 1882";
 
 
-		System.out.println(CreditCardValidator.validate(ccNum1) + " = true");
-		System.out.println(CreditCardValidator.validate(ccNum2) + " = false");
-		System.out.println(CreditCardValidator.validate(ccNum3) + " = false");
-
-
+		System.out.println("Actual: " + CreditCardValidator.validate(ccNum1) + " Expected: true");
+		System.out.println("Actual: " + CreditCardValidator.validate(ccNum2) + " Expected: false");
+		System.out.println("Actual: " + CreditCardValidator.validate(ccNum3) + " Expected: false");
+		
 	}
 
 }
