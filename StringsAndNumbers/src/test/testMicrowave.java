@@ -8,9 +8,21 @@ public class testMicrowave {
 
 		microwave.start();
 		microwave.increaseTime();
+		System.out.println("Actual: " + microwave.getTime() + " Expected: 10");
+
+		System.out.println("Actual: " + microwave.getPowerLevel() + " Expected: Medium");
 		microwave.setPowerLevel("High");
+		System.out.println("Actual: " + microwave.getPowerLevel() + " Expected: High");
+
 		microwave.start();
 		microwave.stop();
-		microwave.getTime();
+
+		System.out.println("Actual: " + microwave.getTime() + " Expected: 0");
+
+		microwave.increaseTime();
+		System.out.println("Actual: " + microwave.getTime() + " Expected: 10");
+		microwave.reset();
+		System.out.println("Actual: " + microwave.getTime() + " Expected: 10");
+
 	}
 }
