@@ -20,7 +20,7 @@ public class Microwave {
 	 * Increases the timer by 10 seconds
 	 */
 	public void increaseTime() {
-		time =+ 10;
+		time += 10;
 	}
 
 	public int getTime() {
