@@ -6,7 +6,10 @@ package banking;
  */
 public class BankAccount
 {
+	private final static int MAX_FREE_TRANSACTIONS = 10;
 	private double balance;
+	private double fee;
+	private int transactionCount;
 
 	/**
 	 Constructs a bank account with a zero balance.
@@ -14,6 +17,8 @@ public class BankAccount
 	public BankAccount()
 	{
 		balance = 0;
+		fee = 0.50;
+		transactionCount = 0;
 	}
 
 	/**
@@ -32,6 +37,7 @@ public class BankAccount
 	public void deposit(double amount)
 	{
 		balance = balance + amount;
+		transactionCount++;
 	}
 
 	/**
@@ -41,6 +47,7 @@ public class BankAccount
 	public void withdraw(double amount)
 	{
 		balance = balance - amount;
+		transactionCount++;
 	}
 
 	/**
@@ -50,5 +57,26 @@ public class BankAccount
 	public double getBalance()
 	{
 		return balance;
+	}
+
+	private void chargeTransactionFee() {
+		balance -= fee;
+	}
+
+	/**
+	 * Charges transaction fees on a monthly basis
+	 * and resets the transaction count
+	 */
+	public void deductMonthlyCharge() {
+		if(transactionCount > MAX_FREE_TRANSACTIONS) {
+			for(int i = 0; i < transactionCount; i++) {
+				chargeTransactionFee();
+			}
+		}
+		transactionCount = 0;
+	}
+
+	public void setFee(double fee) {
+		this.fee = fee;
 	}
 }
