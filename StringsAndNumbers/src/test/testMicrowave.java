@@ -2,6 +2,10 @@ package test;
 
 import microwave.Microwave;
 
+/**
+ * Tests Microwavw class
+ * @author Beesham Sarendranauth, 104854956
+ */
 public class testMicrowave {
 	public static void main(String[] args) {
 		Microwave microwave = new Microwave();
