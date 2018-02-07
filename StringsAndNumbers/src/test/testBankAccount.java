@@ -2,6 +2,9 @@ package test;
 
 import banking.BankAccount;
 
+/**
+ * Tests bankAccount class
+ */
 public class testBankAccount {
 	public static void main(String[] args) {
 		BankAccount bankAccount = new BankAccount(20000);
