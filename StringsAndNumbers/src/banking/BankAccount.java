@@ -28,6 +28,8 @@ public class BankAccount
 	public BankAccount(double initialBalance)
 	{
 		balance = initialBalance;
+		fee = 0.50;
+		transactionCount = 0;
 	}
 
 	/**
@@ -60,7 +62,7 @@ public class BankAccount
 	}
 
 	private void chargeTransactionFee() {
-		balance -= fee;
+		balance = balance - fee;
 	}
 
 	/**
