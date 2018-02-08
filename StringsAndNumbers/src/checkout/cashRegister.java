@@ -1,9 +1,9 @@
 package checkout;
 
 public class CashRegister {
-	private double amountDue;
-	private double amountReceived;
-	private double change;
+	private int amountDue;
+	private int amountReceived;
+	private int change;
 
 	public CashRegister() {
 		amountDue = 0;
@@ -15,7 +15,7 @@ public class CashRegister {
 		return amountDue;
 	}
 
-	public void setAmountDue(double amountDue) {
+	public void setAmountDue(int amountDue) {
 		this.amountDue = amountDue;
 	}
 
@@ -23,7 +23,7 @@ public class CashRegister {
 		return amountReceived;
 	}
 
-	public void setAmountReceived(double amountReceived) {
+	public void setAmountReceived(int amountReceived) {
 		this.amountReceived = amountReceived;
 	}
 
@@ -48,7 +48,7 @@ public class CashRegister {
 		penny = 1
 		*/
 	private String calculateChange() {
-		double dollars, quarters, dimes, nickles, pennies;
+		int dollars, quarters, dimes, nickles, pennies;
 
 		dollars = change/100;
 		quarters = (change%100)/25;
