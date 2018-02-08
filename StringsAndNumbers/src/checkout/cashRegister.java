@@ -62,4 +62,13 @@ public class CashRegister {
 				"Nickles: " + nickles + "\n" +
 				"Pennies: " + pennies;
 	}
+
+	/**
+	 * Clears the cash register for a new transaction
+	 */
+	public void clear() {
+		amountDue = 0;
+		amountReceived = 0;
+		change = 0;
+	}
 }
