@@ -1,11 +1,11 @@
 package checkout;
 
-public class cashRegister {
+public class CashRegister {
 	private double amountDue;
 	private double amountReceived;
 	private double change;
 
-	public cashRegister() {
+	public CashRegister() {
 		amountDue = 0;
 		amountReceived = 0;
 		change = 0;
@@ -56,10 +56,10 @@ public class cashRegister {
 		nickles = (((change%100)%25)%10)/5;
 		pennies = ((((change%100)%25)%10)%5);
 
-		return "Dollars: " + dollars + "/n" +
-				"Quarters: " + quarters + "/n" +
-				"Dimes: " + dimes + "/n" +
-				"Nickles: " + nickles + "/n" +
+		return "Dollars: " + dollars + "\n" +
+				"Quarters: " + quarters + "\n" +
+				"Dimes: " + dimes + "\n" +
+				"Nickles: " + nickles + "\n" +
 				"Pennies: " + pennies;
 	}
 }
