@@ -2,11 +2,13 @@ package checkout;
 
 public class cashRegister {
 	private double amountDue;
-	private double amountRecieved;
+	private double amountReceived;
+	private double change;
 
 	public cashRegister() {
 		amountDue = 0;
-		amountRecieved = 0;
+		amountReceived = 0;
+		change = 0;
 	}
 
 	public double getAmountDue() {
@@ -17,19 +19,19 @@ public class cashRegister {
 		this.amountDue = amountDue;
 	}
 
-	public double getAmountRecieved() {
-		return amountRecieved;
+	public double getAmountReceived() {
+		return amountReceived;
 	}
 
-	public void setAmountRecieved(double amountRecieved) {
-		this.amountRecieved = amountRecieved;
+	public void setAmountReceived(double amountReceived) {
+		this.amountReceived = amountReceived;
 	}
 
 	/**
 	 * Displays the change due
 	 */
 	public void printChange() {
-		double change = amountRecieved - amountDue;
+		change = amountReceived - amountDue;
 		if(change< 0) {
 			System.out.println("We need more money");
 		} else if(change == 0){
@@ -39,9 +41,25 @@ public class cashRegister {
 		}
 	}
 
+	/*dollar: 100 cents
+		quarter: 25
+		dime: 10
+		nickle: 5
+		penny = 1
+		*/
 	private String calculateChange() {
-		
+		double dollars, quarters, dimes, nickles, pennies;
 
-		return null;
+		dollars = change/100;
+		quarters = (change%100)/25;
+		dimes = ((change%100)%25)/10;
+		nickles = (((change%100)%25)%10)/5;
+		pennies = ((((change%100)%25)%10)%5);
+
+		return "Dollars: " + dollars + "/n" +
+				"Quarters: " + quarters + "/n" +
+				"Dimes: " + dimes + "/n" +
+				"Nickles: " + nickles + "/n" +
+				"Pennies: " + pennies;
 	}
 }
