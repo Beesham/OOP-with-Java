@@ -2,6 +2,9 @@ package checkout;
 
 import java.util.Scanner;
 
+/*
+	Class that models a Cashier that uses a CashRegister
+*/
 public class Cashier {
 	public static void main(String[] arg) {
 		Scanner in = new Scanner(System.in);
