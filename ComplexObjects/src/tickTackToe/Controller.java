@@ -133,6 +133,9 @@ public class Controller {
 			if(checkForWinner(playerX)) {
 				endGame(playerX);
 				return;
+			}else if(playerXTurns == MAX_TURNS_X) {
+				endGame();
+				return;
 			}
 
 			while(!board.play(promptForCoordinates(playerO), playerO.getPlayerMark())) {
@@ -146,7 +149,6 @@ public class Controller {
 				return;
 			}
 		}
-		endGame();
 	}
 
 	private void endGame(Player player) {
