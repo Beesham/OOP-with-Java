@@ -5,6 +5,10 @@ import tickTackToe.model.Board;
 import tickTackToe.model.Coordinate;
 import tickTackToe.model.Player;
 
+/**
+ * Test Controller.class checking for a winnner
+ * @author Beesham Sarendranauth
+ */
 public class ControllerTest {
 	public static void main(String[] args) {
 		Player playerX = new Player("X");

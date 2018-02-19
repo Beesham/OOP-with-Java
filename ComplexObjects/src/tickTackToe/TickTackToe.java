@@ -3,6 +3,11 @@ package tickTackToe;
 import tickTackToe.model.Board;
 import tickTackToe.model.Player;
 
+/**
+ * Starts a game of tick tack toe
+ * @author Beesham Sarendranauth
+ * Date: 2018/02/23
+ */
 public class TickTackToe {
 	public static void main(String[] args) {
 
@@ -12,6 +17,5 @@ public class TickTackToe {
 		Controller controller = new Controller(playerX, playerO, board);
 
 		controller.startGame();
-
 	}
 }

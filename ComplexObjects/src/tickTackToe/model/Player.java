@@ -1,7 +1,8 @@
 package tickTackToe.model;
 
-/*
-	Player class that provides functions to interface with the board
+/**
+ * Player class that provides functions to interface with the board
+ * @author Beesham Sarendranauth
  */
 public class Player {
 	private String playerMark;

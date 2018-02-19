@@ -2,8 +2,9 @@ package tickTackToe.model;
 
 import java.util.Arrays;
 
-/*
-	Models a tick tack toe game board
+/**
+ *  Models a tick tack toe game board
+ *  @author Beesham Sarendranauth
  */
 public class Board {
 	public static final int SIZE_OF_BOARD = 3;

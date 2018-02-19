@@ -3,6 +3,10 @@ package test.tickTackToeTest;
 import tickTackToe.model.Board;
 import tickTackToe.model.Coordinate;
 
+/**
+ * Test Board.class for proper played positions
+ * @author Beesham Sarendranauth
+ */
 public class BoardTest {
 	public static void main(String[] args) {
 		Board board = new Board();
@@ -18,7 +22,5 @@ public class BoardTest {
 
 		System.out.println("\nExpected: false, Actual: " + board.play(
 				new Coordinate(0,0), "X"));
-
-
 	}
 }

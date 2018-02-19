@@ -1,7 +1,8 @@
 package tickTackToe.model;
 
-/*
-	Models an row,column coordinate system
+/**
+ * 	Models an row,column coordinate system
+ *	@author Beesham Sarendranauth
  */
 public class Coordinate {
 	private int row;

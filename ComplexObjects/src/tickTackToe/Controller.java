@@ -6,14 +6,14 @@ import tickTackToe.model.Player;
 
 import java.util.Scanner;
 
-/*
-	Controls the flow of the game
+/**
+ *  Controls the flow of the game tick tack toe
+ *  @author Beesham Sarendranauth
  */
 public class Controller {
 	public static final int MAX_GAME_TURNS = 5;
 	private static final int MAX_TURNS_X = 5;
 	private static final int MAX_TURNS_O = 4;
-	private static final int TURNS_FOR_VALID_WINNER = 3;
 
 	private int gameTurns;
 	private int playerXTurns;
@@ -110,6 +110,11 @@ public class Controller {
 		return false;
 	}
 
+	/**
+	 * Prompts player for coordinates to play
+	 * @param player
+	 * @return a coordinate object containing the chosen co-ords
+	 */
 	public Coordinate promptForCoordinates(Player player) {
 		Scanner in = new Scanner(System.in);
 		System.out.print("\nWhat is your move player" + player.getPlayerMark() + " (row column): ");
@@ -123,13 +128,17 @@ public class Controller {
 	 */
 	public void startGame() {
 		board.drawBoard();
+
+		//Handles turns
 		for(int i = 0; i < MAX_GAME_TURNS; i++) {
+			//Check if the co-ords was already played
 			while(!board.play(promptForCoordinates(playerX), playerX.getPlayerMark())) {
 				System.out.println("Someone already played there!");
 			}
 			board.drawBoard();
 			incrementPlayerXTurn();
 
+			//Check for winnner
 			if(checkForWinner(playerX)) {
 				endGame(playerX);
 				return;
