@@ -18,7 +18,13 @@ public class Board {
 	 * Draws the game board.
 	 */
 	public void drawBoard() {
-		//TODO
+		for(int i = 0; i < SIZE_OF_BOARD; i++) {
+			for(int j = 0; j < SIZE_OF_BOARD; j++) {
+				if(j == SIZE_OF_BOARD - 1) System.out.print(board[i][j]);
+				else System.out.print(board[i][j] + " | " );
+			}
+		}
+		System.out.println("----------------");
 	}
 
 	/**
@@ -27,7 +33,7 @@ public class Board {
 	 * @param mark the mark the board draws
 	 */
 	public void play(Coordinate coordinates, String mark) {
-		//TODO
+		board[coordinates.getRow()][coordinates.getColumn()] = mark;
 	}
 
 	public String[][] getBoard() {
