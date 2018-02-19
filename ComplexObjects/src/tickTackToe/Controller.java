@@ -123,12 +123,14 @@ public class Controller {
 	 * Starts the game of tick tack toe and handles turns
 	 */
 	public void startGame() {
+		board.drawBoard();
 		for(int i = 0; i < MAX_GAME_TURNS; i++) {
-
 			board.play(promptForCoordinates(playerX), playerX.getPlayerMark());
+			board.drawBoard();
 			incrementPlayerXTurn();
 
 			board.play(promptForCoordinates(playerO), playerO.getPlayerMark());
+			board.drawBoard();
 			incrementPlayerOTurn();
 
 			if(i > TURNS_FOR_VALID_WINNER) {
