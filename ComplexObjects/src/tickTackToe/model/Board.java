@@ -32,9 +32,13 @@ public class Board {
 	 * Places a mark on the board and re-draws
 	 * @param coordinates the coordinate to play
 	 * @param mark the mark the board draws
+	 * @return true on successful play, else false
 	 */
-	public void play(Coordinate coordinates, String mark) {
-		board[coordinates.getRow()][coordinates.getColumn()] = mark;
+	public boolean play(Coordinate coordinates, String mark) {
+		if(board[coordinates.getRow()][coordinates.getColumn()].equals("-"))
+			board[coordinates.getRow()][coordinates.getColumn()] = mark;
+		else return false;
+		return true;
 	}
 
 	public String[][] getBoard() {
