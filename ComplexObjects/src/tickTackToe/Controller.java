@@ -4,7 +4,6 @@ import tickTackToe.model.Board;
 import tickTackToe.model.Coordinate;
 import tickTackToe.model.Player;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -68,7 +67,7 @@ public class Controller {
 	}
 
 	public boolean checkForWinner(Player player) {
-		String boardCpy[][] = Arrays.copyOf(board.getBoard(), board.getBoard().length*3);
+		final String boardCpy[][] = board.getBoard();
 		int markCount = 0;
 
 		//Checks rows for winner
@@ -113,7 +112,7 @@ public class Controller {
 
 	public Coordinate promptForCoordinates(Player player) {
 		Scanner in = new Scanner(System.in);
-		System.out.printf("What is your move player" + player.getPlayerMark() + " (row[space]column): ");
+		System.out.print("\nWhat is your move player" + player.getPlayerMark() + " (row column): ");
 		int row = in.nextInt();
 		int column = in.nextInt();
 		return new Coordinate(row, column);
@@ -125,22 +124,37 @@ public class Controller {
 	public void startGame() {
 		board.drawBoard();
 		for(int i = 0; i < MAX_GAME_TURNS; i++) {
-			board.play(promptForCoordinates(playerX), playerX.getPlayerMark());
+			while(!board.play(promptForCoordinates(playerX), playerX.getPlayerMark())) {
+				System.out.println("Someone already played there!");
+			}
 			board.drawBoard();
 			incrementPlayerXTurn();
 
-			board.play(promptForCoordinates(playerO), playerO.getPlayerMark());
+			if(checkForWinner(playerX)) {
+				endGame(playerX);
+				return;
+			}
+
+			while(!board.play(promptForCoordinates(playerO), playerO.getPlayerMark())) {
+				System.out.println("Someone already played there!");
+			}
 			board.drawBoard();
 			incrementPlayerOTurn();
 
-			if(i > TURNS_FOR_VALID_WINNER) {
-				if(checkForWinner(playerX)) endGame(playerX);
-				if(checkForWinner(playerO)) endGame(playerO);
+			if(checkForWinner(playerO)) {
+				endGame(playerO);
+				return;
 			}
 		}
+		endGame();
 	}
 
 	private void endGame(Player player) {
-		System.out.println("Player" + player.getPlayerMark() + "won!");
+		System.out.println("\nPlayer" + player.getPlayerMark() + " won!");
 	}
+
+	private void endGame() {
+		System.out.println("\nDraw!");
+	}
+
 }
