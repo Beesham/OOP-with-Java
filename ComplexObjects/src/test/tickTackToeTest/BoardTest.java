@@ -15,5 +15,10 @@ public class BoardTest {
 
 		System.out.print("\nExpected: X in top right, O in bottom left, Actual: ");
 		board.drawBoard();
+
+		System.out.println("\nExpected: false, Actual: " + board.play(
+				new Coordinate(0,0), "X"));
+
+
 	}
 }
