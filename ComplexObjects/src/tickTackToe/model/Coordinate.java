@@ -3,11 +3,11 @@ package tickTackToe.model;
 /*
 	Models an x,y coordinate system
  */
-public class Coordinates {
+public class Coordinate {
 	private int x;
 	private int y;
 
-	public Coordinates(int x, int y) {
+	public Coordinate(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

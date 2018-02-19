@@ -22,7 +22,7 @@ public class Board {
 	 * @param coordinates the coordinate to play
 	 * @param mark the mark the board draws
 	 */
-	public void play(Coordinates coordinates, String mark) {
+	public void play(Coordinate coordinates, String mark) {
 		//TODO
 	}
 
