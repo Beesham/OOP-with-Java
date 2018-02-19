@@ -4,6 +4,7 @@ import tickTackToe.model.Board;
 import tickTackToe.model.Coordinate;
 import tickTackToe.model.Player;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -66,9 +67,48 @@ public class Controller {
 		playerOTurns++;
 	}
 
-	public Player checkForWinner() throws Exception {
-		//TODO
-		return playerX;
+	public boolean checkForWinner(Player player) {
+		String boardCpy[][] = Arrays.copyOf(board.getBoard(), board.getBoard().length*3);
+		int markCount = 0;
+
+		//Checks rows for winner
+		for(int i = 0; i < Board.SIZE_OF_BOARD; i++) {
+			for (int j = 0; j < Board.SIZE_OF_BOARD; j++) {
+				if (boardCpy[i][j].equals(player.getPlayerMark())) {
+					markCount++;
+				}
+				if (j == Board.SIZE_OF_BOARD - 1 && markCount != 3) {
+					markCount = 0;
+				}
+				if (markCount == 3) {
+					return true;
+				}
+			}
+		}
+
+		//Checks columns for winner
+		for(int i = 0; i < Board.SIZE_OF_BOARD; i++) {
+			for (int j = 0; j < Board.SIZE_OF_BOARD; j++) {
+				if (boardCpy[j][i].equals(player.getPlayerMark())) {
+					markCount++;
+				}
+				if (j == Board.SIZE_OF_BOARD - 1 && markCount != 3) {
+					markCount = 0;
+				}
+				if (markCount == 3) {
+					return true;
+				}
+			}
+		}
+
+		//Checks diagonal for winner
+		if(boardCpy[0][0].equals(player.getPlayerMark()) &&
+				boardCpy[1][1].equals(player.getPlayerMark()) &&
+				boardCpy[2][2].equals(player.getPlayerMark())) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public Coordinate promptForCoordinates(Player player) {
@@ -92,16 +132,13 @@ public class Controller {
 			incrementPlayerOTurn();
 
 			if(i > TURNS_FOR_VALID_WINNER) {
-				try {
-					if(checkForWinner() != null) endGame();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				if(checkForWinner(playerX)) endGame(playerX);
+				if(checkForWinner(playerO)) endGame(playerO);
 			}
 		}
 	}
 
-	private void endGame() {
-		//TODO
+	private void endGame(Player player) {
+		System.out.println("Player" + player.getPlayerMark() + "won!");
 	}
 }

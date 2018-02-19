@@ -1,13 +1,17 @@
 package tickTackToe.model;
 
+import java.util.Arrays;
+
 /*
 	Models a tick tack toe game board
  */
 public class Board {
+	public static final int SIZE_OF_BOARD = 3;
 	private String board[][];
 
 	public Board() {
-		board = new String[3][3];
+		board = new String[SIZE_OF_BOARD][SIZE_OF_BOARD];
+		initBoard();
 	}
 
 	/**
@@ -26,6 +30,13 @@ public class Board {
 		//TODO
 	}
 
+	public String[][] getBoard() {
+		return board;
+	}
 
-
+	private void initBoard() {
+		for(String row[]: board) {
+			Arrays.fill(row, "-");
+		}
+	}
 }
