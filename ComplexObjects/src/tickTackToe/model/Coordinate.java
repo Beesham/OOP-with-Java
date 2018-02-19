@@ -1,22 +1,22 @@
 package tickTackToe.model;
 
 /*
-	Models an x,y coordinate system
+	Models an row,column coordinate system
  */
 public class Coordinate {
-	private int x;
-	private int y;
+	private int row;
+	private int column;
 
-	public Coordinate(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Coordinate(int row, int column) {
+		this.row = row;
+		this.column = column;
 	}
 
-	public int getX() {
-		return x;
+	public int getRow() {
+		return row;
 	}
 
-	public int getY() {
-		return y;
+	public int getColumn() {
+		return column;
 	}
 }
