@@ -4,20 +4,19 @@ package tickTackToe.model;
 	Player class that provides functions to interface with the board
  */
 public class Player {
-	String playerName;
+	String playerMark;
 	Board board;
 
-	public Player(String playerName, Board board) {
-		this.playerName = playerName;
+	public Player(String playerMark, Board board) {
+		this.playerMark = playerMark;
 		this.board = board;
 	}
 
 	/**
 	 * Plays on the board at a provided coordinate
-	 * @param row
-	 * @param column
+	 * @param coordinates the coordinate the player plays
 	 */
-	public void play(int row, int column) {
-		//TODO
+	public void play(Coordinates coordinates) {
+		board.play(coordinates, playerMark);
 	}
 }
