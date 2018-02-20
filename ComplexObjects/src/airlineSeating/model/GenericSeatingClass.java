@@ -17,11 +17,11 @@ public class GenericSeatingClass {
 	}
 
 	/**
-	 * Assigns a seat to the passenger and the passenger to the seat
+	 * Assigns a seat to the passenger and passenger to seat
 	 * @param p the passenger to assign to the seat
 	 */
-	public void assignSeat(Passenger p){
-		Seat s = p.getAssignedSeat();
+	public void assignSeat(Passenger p, Seat s){
+		p.assignSeat(s);
 		seats[s.getRow()][s.getColumn()] = p;
 	}
 
@@ -36,5 +36,9 @@ public class GenericSeatingClass {
 
 	public Passenger[][] getSeats() {
 		return seats;
+	}
+
+	public Passenger getPassengerInSeat(Seat s) {
+		return seats[s.getRow()][s.getColumn()];
 	}
 }
