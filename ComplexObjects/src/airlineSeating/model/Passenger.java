@@ -29,4 +29,12 @@ public class Passenger {
 	public String getSeatingPreference() {
 		return seatingPreference;
 	}
+
+	@Override
+	public String toString() {
+		return "Passenger{" +
+				"assignedSeat=" + assignedSeat +
+				", seatingPreference='" + seatingPreference + '\'' +
+				'}';
+	}
 }
