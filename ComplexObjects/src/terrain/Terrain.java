@@ -22,7 +22,7 @@ public class Terrain {
 		Scanner in = new Scanner(System.in);
 		for(int i = 0; i < sizeOfSquare; i++) {
 			for(int j = 0; j < sizeOfSquare; j++) {
-				System.out.println("Height of terrain at " + i + "," + j + " : ");
+				System.out.print("Height of terrain at " + i + "," + j + " : ");
 				terrainHeights[i][j] = in.nextInt();
 			}
 		}
@@ -36,7 +36,6 @@ public class Terrain {
 		int lowestPoint = Integer.MAX_VALUE;
 		for(int i = 0; i < sizeOfSquare; i++) {
 			for(int j = 0; j < sizeOfSquare; j++) {
-				System.out.println("Height of terrain at " + i + "," + j + " : ");
 				if(terrainHeights[i][j] < lowestPoint) {
 					lowestPoint = terrainHeights[i][j];
 				}
@@ -53,7 +52,6 @@ public class Terrain {
 		int highestPoint = Integer.MIN_VALUE;
 		for(int i = 0; i < sizeOfSquare; i++) {
 			for(int j = 0; j < sizeOfSquare; j++) {
-				System.out.println("Height of terrain at " + i + "," + j + " : ");
 				if(terrainHeights[i][j] > highestPoint) {
 					highestPoint = terrainHeights[i][j];
 				}
@@ -67,6 +65,15 @@ public class Terrain {
 	 * @param threshold the flood point
 	 */
 	public void printFloodMap(int threshold) {
-		//TODO
+		for(int i = 0; i < sizeOfSquare; i++) {
+			for(int j = 0; j < sizeOfSquare; j++) {
+				if(terrainHeights[i][j] < threshold) {
+					System.out.print(" * ");
+				}else{
+					System.out.print(" - ");
+				}
+			}
+			System.out.println("");
+		}
 	}
 }

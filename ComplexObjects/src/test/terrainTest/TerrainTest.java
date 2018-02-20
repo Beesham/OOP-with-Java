@@ -12,8 +12,8 @@ public class TerrainTest {
 		int floodThreshold = 3;
 		Terrain terrain = new Terrain(sizeOfTerrain);
 		terrain.readHeightsOfTerrain();
-		terrain.getHeighestPoint();
-		terrain.getLowestPoint();
+		System.out.println("Expected: ?, Actual: " + terrain.getHeighestPoint());
+		System.out.println("Expected: ?, Actual: " + terrain.getLowestPoint());
 		terrain.printFloodMap(floodThreshold);
 	}
 }
