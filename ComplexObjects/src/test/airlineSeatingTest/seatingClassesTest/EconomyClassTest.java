@@ -5,6 +5,7 @@ import airlineSeating.model.Passenger;
 import airlineSeating.model.Seat;
 import airlineSeating.model.SeatingPreferences;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,9 +26,15 @@ public class EconomyClassTest {
 
 		economyClass.assignSeat(pW, new Seat(0,0));
 
+		List<Passenger> passengerList = new ArrayList<>();
+		passengerList.add(pW);
+		passengerList.add(pC);
+		passengerList.add(pA);
+
 		try {
 			List<Seat> seatList = economyClass.findMatch(3);
 			System.out.println(seatList.toString());
+			economyClass.assignMultiSeats(passengerList, seatList);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
