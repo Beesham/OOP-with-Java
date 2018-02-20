@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Models Economy class for an airline
- * Has window seats and aisle
+ * Has window seats and aisle, center seats too
  * @author Beesham Sarendranauth
  */
 public class EconomyClass extends GenericSeatingClass {
@@ -106,5 +106,4 @@ public class EconomyClass extends GenericSeatingClass {
 
 		return null;
 	}
-
 }
