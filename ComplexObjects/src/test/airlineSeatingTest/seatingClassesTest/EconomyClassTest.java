@@ -14,12 +14,19 @@ public class EconomyClassTest {
 		EconomyClass economyClass = new EconomyClass(new Passenger[EconomyClass.MAX_ROWS_ECON][EconomyClass.MAX_COLS_ECON]);
 
 		Passenger pW = new Passenger(economyClass, SeatingPreferences.WINDOW);
+		Passenger pW2 = new Passenger(economyClass, SeatingPreferences.WINDOW);
 		Passenger pC = new Passenger(economyClass, SeatingPreferences.CENTER);
 		Passenger pA = new Passenger(economyClass, SeatingPreferences.AISLE);
 
 		try {
 			Seat sW = economyClass.findMatch(pW);
 			System.out.println("Window: " + sW.toString());
+			economyClass.assignSeat(pW, sW);
+			System.out.println("Passenger: " + economyClass.getPassengerInSeat(sW));
+
+			Seat sW2 = economyClass.findMatch(pW2);
+			System.out.println("Window: " + sW2.toString());
+			System.out.println("Passenger: " + economyClass.getPassengerInSeat(sW2));
 
 			Seat sC = economyClass.findMatch(pC);
 			System.out.println("Center: " + sC.toString());
