@@ -1,5 +1,7 @@
 package terrain;
 
+import java.util.Scanner;
+
 /**
  * Models a terrain with high points and low
  * @author Beesham Sarendranauth
@@ -17,7 +19,13 @@ public class Terrain {
 	 * Read the heights of the terrain
 	 */
 	public void readHeightsOfTerrain() {
-		//TODO
+		Scanner in = new Scanner(System.in);
+		for(int i = 0; i < sizeOfSquare; i++) {
+			for(int j = 0; j < sizeOfSquare; j++) {
+				System.out.println("Height of terrain at " + i + "," + j + " : ");
+				terrainHeights[i][j] = in.nextInt();
+			}
+		}
 	}
 
 	/**
@@ -25,8 +33,16 @@ public class Terrain {
 	 * @return the lowest point
 	 */
 	public int getLowestPoint() {
-		//TODO
-		return 0;
+		int lowestPoint = Integer.MAX_VALUE;
+		for(int i = 0; i < sizeOfSquare; i++) {
+			for(int j = 0; j < sizeOfSquare; j++) {
+				System.out.println("Height of terrain at " + i + "," + j + " : ");
+				if(terrainHeights[i][j] < lowestPoint) {
+					lowestPoint = terrainHeights[i][j];
+				}
+			}
+		}
+		return lowestPoint;
 	}
 
 	/**
@@ -34,8 +50,16 @@ public class Terrain {
 	 * @return the highest point
 	 */
 	public int getHeighestPoint() {
-		//TODO
-		return 0;
+		int highestPoint = Integer.MIN_VALUE;
+		for(int i = 0; i < sizeOfSquare; i++) {
+			for(int j = 0; j < sizeOfSquare; j++) {
+				System.out.println("Height of terrain at " + i + "," + j + " : ");
+				if(terrainHeights[i][j] > highestPoint) {
+					highestPoint = terrainHeights[i][j];
+				}
+			}
+		}
+		return highestPoint;
 	}
 
 	/**
