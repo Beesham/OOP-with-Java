@@ -33,4 +33,7 @@ public class GenericSeatingClass {
 		return p;
 	}
 
+	public Passenger[][] getSeats() {
+		return seats;
+	}
 }
