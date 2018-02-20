@@ -1,5 +1,7 @@
 package airlineSeating.model;
 
+import java.util.List;
+
 /**
  * Generic seating class that has common functions
  * @author Beesham Sarendranauth
@@ -26,6 +28,17 @@ public class GenericSeatingClass {
 	}
 
 	/**
+	 * Assigns a group of passengers seats next to each other
+	 * @param passengerList
+	 * @param seatList
+	 */
+	public void assignMultiSeats(List<Passenger> passengerList, List<Seat> seatList) {
+		for(int i = 0; i < passengerList.size(); i++) {
+			assignSeat(passengerList.get(i), seatList.get(i));
+		}
+	}
+
+	/**
 	 * Checks for a seat that mathces the passengers preference
 	 * @param p the passenger to match a seat for
 	 * @return the seat found
@@ -38,6 +51,7 @@ public class GenericSeatingClass {
 		return seats;
 	}
 
+	//TODO: add doc
 	public Passenger getPassengerInSeat(Seat s) {
 		return seats[s.getRow()][s.getColumn()];
 	}
