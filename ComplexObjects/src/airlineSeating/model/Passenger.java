@@ -9,10 +9,13 @@ public class Passenger {
 	private int assignedSeat;
 	private String seatingPreference;
 
-	public Passenger(GenericSeatingClass seatingClass, int assignedSeat, String seatingPreference) {
+	public Passenger(GenericSeatingClass seatingClass, String seatingPreference) {
 		this.seatingClass = seatingClass;
-		this.assignedSeat = assignedSeat;
 		this.seatingPreference = seatingPreference;
+	}
+
+	public void assignSeat(int assignedSeat) {
+		this.assignedSeat = assignedSeat;
 	}
 
 	public GenericSeatingClass getSeatingClass() {
