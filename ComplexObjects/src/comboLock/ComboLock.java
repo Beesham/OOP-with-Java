@@ -29,13 +29,18 @@ public class ComboLock {
 		this.secret2 = secret2;
 		this.secret3 = secret3;
 
+		num1 = 0;
+		num2 = 0;
+		num3 = 0;
 		dialTouchCount = 0;
 	}
 
 	/**
 	 * Resets the dial to 0
 	 */
-	public void reset() { }
+	public void reset() {
+		dialTouchCount = 0;
+	}
 
 	/**
 	 * Turns the dial left a given number of times
@@ -43,7 +48,13 @@ public class ComboLock {
 	 */
 	public void turnLeft(int ticks) {
 		if(dialTouchCount == 1) {
-			num2 = ticks;
+			if(ticks >= MIN_COMBO_NUM && ticks <= MAX_COMBO_NUM) {
+				num2 = ticks;
+				dialTouchCount++;
+			}else{
+				num2 = 0;
+				dialTouchCount++;
+			}
 		}
 	}
 
@@ -53,9 +64,21 @@ public class ComboLock {
 	 */
 	public void turnRight(int ticks) {
 		if(dialTouchCount == 0) {
-			num1 = ticks;
+			if(ticks >= MIN_COMBO_NUM && ticks <= MAX_COMBO_NUM) {
+				num1 = ticks;
+				dialTouchCount++;
+			}else{
+				num1 = 0;
+				dialTouchCount++;
+			}
 		}else if(dialTouchCount == 2) {
-			num3 = ticks;
+			if(ticks >= MIN_COMBO_NUM && ticks <= MAX_COMBO_NUM) {
+				num3 = ticks;
+				dialTouchCount++;
+			}else{
+				num2 = 0;
+				dialTouchCount++;
+			}
 		}
 	}
 
