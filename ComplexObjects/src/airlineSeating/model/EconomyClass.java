@@ -26,7 +26,7 @@ public class EconomyClass extends GenericSeatingClass {
 				if (seats[i][0] == null) {
 					return new Seat(i, 0);
 				}else if(seats[i][MAX_COLS_ECON - 1] == null){
-					return new Seat(i, 0);
+					return new Seat(i, MAX_COLS_ECON - 1);
 				}else{
 					throw new Exception("No Seats Found!");
 				}
