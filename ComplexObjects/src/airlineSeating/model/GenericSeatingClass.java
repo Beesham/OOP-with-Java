@@ -28,9 +28,10 @@ public class GenericSeatingClass {
 	/**
 	 * Checks for a seat that mathces the passengers preference
 	 * @param p the passenger to match a seat for
+	 * @return the seat found
 	 */
-	public Passenger findMatch(Passenger p){
-		return p;
+	public Seat findMatch(Passenger p) throws Exception{
+		return null;
 	}
 
 	public Passenger[][] getSeats() {
