@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class EconomyClass extends GenericSeatingClass {
 
+	public static final String ECONOMY_CLASS_NAME = "economy";
 	public static final int MAX_SEATS_ECON = 90;
 	public static final int MAX_ROWS_ECON = 15;
 	public static final int MAX_COLS_ECON = 6;
