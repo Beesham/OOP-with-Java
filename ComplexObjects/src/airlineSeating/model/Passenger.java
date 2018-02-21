@@ -5,11 +5,11 @@ package airlineSeating.model;
  * @author Beesham Sarendranauth
  */
 public class Passenger {
-	private GenericSeatingClass seatingClass;
+	private String seatingClass;
 	private Seat assignedSeat;
 	private String seatingPreference;
 
-	public Passenger(GenericSeatingClass seatingClass, String seatingPreference) {
+	public Passenger(String seatingClass, String seatingPreference) {
 		this.seatingClass = seatingClass;
 		this.seatingPreference = seatingPreference;
 	}
@@ -18,7 +18,7 @@ public class Passenger {
 		this.assignedSeat = assignedSeat;
 	}
 
-	public GenericSeatingClass getSeatingClass() {
+	public String getSeatingClass() {
 		return seatingClass;
 	}
 
