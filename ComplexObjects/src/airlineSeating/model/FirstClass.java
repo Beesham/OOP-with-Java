@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class FirstClass extends GenericSeatingClass{
 
+	public static final String FIRST_CLASS_NAME = "first";
 	public static final int MAX_SEATS_FIRST = 20;
 	public static final int MAX_ROWS_FIRST = 5;
 	public static final int MAX_COLS_FIRST = 4;
