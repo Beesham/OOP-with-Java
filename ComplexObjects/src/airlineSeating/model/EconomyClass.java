@@ -39,8 +39,8 @@ public class EconomyClass extends GenericSeatingClass {
 			for (int i = 0; i < MAX_ROWS_ECON; i++) {
 				if (seats[i][AISLE_OFFSET] == null) {
 					return new Seat(i, AISLE_OFFSET);
-				}else if(seats[i][MAX_COLS_ECON - AISLE_OFFSET] == null){
-					return new Seat(i, AISLE_OFFSET);
+				}else if(seats[i][MAX_COLS_ECON - 1 - AISLE_OFFSET] == null){
+					return new Seat(i, MAX_COLS_ECON - 1 - AISLE_OFFSET);
 				}else{
 					throw new Exception("No Seats Found!");
 				}
@@ -49,8 +49,8 @@ public class EconomyClass extends GenericSeatingClass {
 			for (int i = 0; i < MAX_ROWS_ECON; i++) {
 				if (seats[i][CENTER_OFFSET] == null) {
 					return new Seat(i, CENTER_OFFSET);
-				}else if(seats[i][MAX_COLS_ECON - CENTER_OFFSET] == null){
-					return new Seat(i, CENTER_OFFSET);
+				}else if(seats[i][MAX_COLS_ECON - 1 - CENTER_OFFSET] == null){
+					return new Seat(i, MAX_COLS_ECON - 1 -CENTER_OFFSET);
 				}else{
 					throw new Exception("No Seats Found!");
 				}
@@ -60,7 +60,7 @@ public class EconomyClass extends GenericSeatingClass {
 		return null;
 	}
 
-	public List<Seat> findMatch(int numOfPassengers) throws Exception{
+	public List<Seat> findMatch(int numOfPassengers, List<Passenger> passengerList) throws Exception{
 		Passenger seats[][] = getSeats();
 		List<Seat> seatList = new ArrayList<>();
 		if(numOfPassengers == 3) {
@@ -81,26 +81,53 @@ public class EconomyClass extends GenericSeatingClass {
 					seatList.add(new Seat(i, MAX_COLS_ECON - 3));
 
 					return seatList;
-				} else {
+				}
+
+				if(i == MAX_ROWS_ECON - 1) {
 					throw new Exception("No Seats Found!");
 				}
 			}
 		}else if(numOfPassengers == 2) {
-			for (int i = 0; i < MAX_ROWS_ECON; i++) {
-				if (seats[i][0] == null &&
-						seats[i][1] == null) {
-					seatList.add(new Seat(i, 0));
-					seatList.add(new Seat(i, 1));
+			boolean noOneWantsWindow = false;
+			if(!passengerList.get(0).getSeatingPreference().equals(SeatingPreferences.WINDOW) &&
+					!passengerList.get(0).getSeatingPreference().equals(SeatingPreferences.WINDOW)) {
+				noOneWantsWindow = true;
+			}
+			if(noOneWantsWindow) {
+				for (int i = 0; i < MAX_ROWS_ECON; i++) {
+					if (seats[i][1] == null &&
+							seats[i][2] == null) {
+						seatList.add(new Seat(i, 1));
+						seatList.add(new Seat(i, 2));
 
-					return seatList;
-				} else if (seats[i][MAX_COLS_ECON - 1] == null &&
-						seats[i][MAX_COLS_ECON - 2] == null) {
-					seatList.add(new Seat(i, MAX_COLS_ECON - 1));
-					seatList.add(new Seat(i, MAX_COLS_ECON - 2));
+						return seatList;
+					} else if (seats[i][MAX_COLS_ECON - 2] == null &&
+							seats[i][MAX_COLS_ECON - 3] == null) {
+						seatList.add(new Seat(i, MAX_COLS_ECON - 2));
+						seatList.add(new Seat(i, MAX_COLS_ECON - 3));
 
-					return seatList;
-				} else {
-					throw new Exception("No Seats Found!");
+						return seatList;
+					} else {
+						throw new Exception("No Seats Found!");
+					}
+				}
+			}else {
+				for (int i = 0; i < MAX_ROWS_ECON; i++) {
+					if (seats[i][0] == null &&
+							seats[i][1] == null) {
+						seatList.add(new Seat(i, 0));
+						seatList.add(new Seat(i, 1));
+
+						return seatList;
+					} else if (seats[i][MAX_COLS_ECON - 1] == null &&
+							seats[i][MAX_COLS_ECON - 2] == null) {
+						seatList.add(new Seat(i, MAX_COLS_ECON - 1));
+						seatList.add(new Seat(i, MAX_COLS_ECON - 2));
+
+						return seatList;
+					} else {
+						throw new Exception("No Seats Found!");
+					}
 				}
 			}
 		}
