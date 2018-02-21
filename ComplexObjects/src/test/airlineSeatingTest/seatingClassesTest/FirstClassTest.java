@@ -16,9 +16,10 @@ public class FirstClassTest {
 
 	public static void testMultiPassenger() {
 		FirstClass firstClass = new FirstClass(new Passenger[FirstClass.MAX_ROWS_FIRST][FirstClass.MAX_COLS_FIRST]);
+		String seatingClass = FirstClass.FIRST_CLASS_NAME;
 
-		Passenger pW = new Passenger(firstClass, SeatingPreferences.WINDOW);
-		Passenger pA = new Passenger(firstClass, SeatingPreferences.AISLE);
+		Passenger pW = new Passenger(seatingClass, SeatingPreferences.WINDOW);
+		Passenger pA = new Passenger(seatingClass, SeatingPreferences.AISLE);
 
 		firstClass.assignSeat(pW, new Seat(0,0));
 
@@ -37,11 +38,12 @@ public class FirstClassTest {
 
 	public static void testSinglePassenger() {
 		FirstClass firstClass = new FirstClass(new Passenger[FirstClass.MAX_ROWS_FIRST][FirstClass.MAX_COLS_FIRST]);
+		String seatingClass = FirstClass.FIRST_CLASS_NAME;
 
-		Passenger pW = new Passenger(firstClass, SeatingPreferences.WINDOW);
-		Passenger pW2 = new Passenger(firstClass, SeatingPreferences.WINDOW);
-		Passenger pC = new Passenger(firstClass, SeatingPreferences.CENTER);
-		Passenger pA = new Passenger(firstClass, SeatingPreferences.AISLE);
+		Passenger pW = new Passenger(seatingClass, SeatingPreferences.WINDOW);
+		Passenger pW2 = new Passenger(seatingClass, SeatingPreferences.WINDOW);
+		Passenger pC = new Passenger(seatingClass, SeatingPreferences.CENTER);
+		Passenger pA = new Passenger(seatingClass, SeatingPreferences.AISLE);
 
 		try {
 			Seat sW = firstClass.findMatch(pW);

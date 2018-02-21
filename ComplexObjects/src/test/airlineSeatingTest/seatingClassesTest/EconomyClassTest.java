@@ -19,10 +19,11 @@ public class EconomyClassTest {
 
 	public static void testMultiPassenger() {
 		EconomyClass economyClass = new EconomyClass(new Passenger[EconomyClass.MAX_ROWS_ECON][EconomyClass.MAX_COLS_ECON]);
+		String seatingClass = EconomyClass.ECONOMY_CLASS_NAME;
 
-		Passenger pW = new Passenger(economyClass, SeatingPreferences.WINDOW);
-		Passenger pC = new Passenger(economyClass, SeatingPreferences.CENTER);
-		Passenger pA = new Passenger(economyClass, SeatingPreferences.AISLE);
+		Passenger pW = new Passenger(seatingClass, SeatingPreferences.WINDOW);
+		Passenger pC = new Passenger(seatingClass, SeatingPreferences.CENTER);
+		Passenger pA = new Passenger(seatingClass, SeatingPreferences.AISLE);
 
 		economyClass.assignSeat(pW, new Seat(0,0));
 
@@ -42,11 +43,12 @@ public class EconomyClassTest {
 
 	public static void testSinglePassenger() {
 		EconomyClass economyClass = new EconomyClass(new Passenger[EconomyClass.MAX_ROWS_ECON][EconomyClass.MAX_COLS_ECON]);
+		String seatingClass = EconomyClass.ECONOMY_CLASS_NAME;
 
-		Passenger pW = new Passenger(economyClass, SeatingPreferences.WINDOW);
-		Passenger pW2 = new Passenger(economyClass, SeatingPreferences.WINDOW);
-		Passenger pC = new Passenger(economyClass, SeatingPreferences.CENTER);
-		Passenger pA = new Passenger(economyClass, SeatingPreferences.AISLE);
+		Passenger pW = new Passenger(seatingClass, SeatingPreferences.WINDOW);
+		Passenger pW2 = new Passenger(seatingClass, SeatingPreferences.WINDOW);
+		Passenger pC = new Passenger(seatingClass, SeatingPreferences.CENTER);
+		Passenger pA = new Passenger(seatingClass, SeatingPreferences.AISLE);
 
 		try {
 			Seat sW = economyClass.findMatch(pW);
