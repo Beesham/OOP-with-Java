@@ -33,7 +33,7 @@ public class EconomyClassTest {
 		passengerList.add(pA);
 
 		try {
-			List<Seat> seatList = economyClass.findMatch(3);
+			List<Seat> seatList = economyClass.findMatch(3, passengerList);
 			System.out.println(seatList.toString());
 			economyClass.assignMultiSeats(passengerList, seatList);
 		} catch (Exception e) {
