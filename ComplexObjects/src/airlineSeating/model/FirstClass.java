@@ -37,8 +37,8 @@ public class FirstClass extends GenericSeatingClass{
 			for (int i = 0; i < MAX_ROWS_FIRST; i++) {
 				if (seats[i][AISLE_OFFSET] == null) {
 					return new Seat(i, AISLE_OFFSET);
-				}else if(seats[i][MAX_COLS_FIRST - AISLE_OFFSET] == null){
-					return new Seat(i, AISLE_OFFSET);
+				}else if(seats[i][MAX_COLS_FIRST - 1 - AISLE_OFFSET] == null){
+					return new Seat(i, MAX_COLS_FIRST - 1 - AISLE_OFFSET);
 				}else{
 					throw new Exception("No Seats Found!");
 				}
