@@ -30,7 +30,7 @@ public class Airplane {
 				s = economyClass.findMatch(passengerList.get(0));
 				economyClass.assignSeat(passengerList.get(0), s);
 			} else if (numOfPassengers > 1) {
-				economyClass.assignMultiSeats(passengerList, economyClass.findMatch(numOfPassengers));
+				economyClass.assignMultiSeats(passengerList, economyClass.findMatch(numOfPassengers, passengerList));
 			}
 		}else if(seatingClass.equals(FirstClass.FIRST_CLASS_NAME)) {
 			if (numOfPassengers == 1) {
