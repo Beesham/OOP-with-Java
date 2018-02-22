@@ -25,6 +25,7 @@ public class EconomyClass extends GenericSeatingClass {
 	@Override
 	public Seat findMatch(Passenger p) throws Exception{
 		Passenger seats[][] = getSeats();
+		//Finds seats that are Window seats
 		if(p.getSeatingPreference().equals(SeatingPreferences.WINDOW)) {
 			for (int i = 0; i < MAX_ROWS_ECON; i++) {
 				if (seats[i][0] == null) {
@@ -35,6 +36,8 @@ public class EconomyClass extends GenericSeatingClass {
 					throw new Exception("No Seats Found!");
 				}
 			}
+
+		//Finds seats that are Aisle seats
 		}else if(p.getSeatingPreference().equals(SeatingPreferences.AISLE)) {
 			for (int i = 0; i < MAX_ROWS_ECON; i++) {
 				if (seats[i][AISLE_OFFSET] == null) {
@@ -45,6 +48,8 @@ public class EconomyClass extends GenericSeatingClass {
 					throw new Exception("No Seats Found!");
 				}
 			}
+
+		//Finds seats that are Center seats
 		}else if(p.getSeatingPreference().equals(SeatingPreferences.CENTER)) {
 			for (int i = 0; i < MAX_ROWS_ECON; i++) {
 				if (seats[i][CENTER_OFFSET] == null) {
@@ -60,9 +65,17 @@ public class EconomyClass extends GenericSeatingClass {
 		return null;
 	}
 
+	/**
+	 * Finds seating for a list of passengers
+	 * @param numOfPassengers
+	 * @param passengerList
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Seat> findMatch(int numOfPassengers, List<Passenger> passengerList) throws Exception{
 		Passenger seats[][] = getSeats();
 		List<Seat> seatList = new ArrayList<>();
+		//Finds seating for 3 passengers
 		if(numOfPassengers == 3) {
 			for (int i = 0; i < MAX_ROWS_ECON; i++) {
 				if (seats[i][0] == null &&
@@ -93,6 +106,7 @@ public class EconomyClass extends GenericSeatingClass {
 					!passengerList.get(0).getSeatingPreference().equals(SeatingPreferences.WINDOW)) {
 				noOneWantsWindow = true;
 			}
+			//Finds seating for passengers who don't want to sit near a window
 			if(noOneWantsWindow) {
 				for (int i = 0; i < MAX_ROWS_ECON; i++) {
 					if (seats[i][1] == null &&

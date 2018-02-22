@@ -23,6 +23,7 @@ public class FirstClass extends GenericSeatingClass{
 	@Override
 	public Seat findMatch(Passenger p) throws Exception {
 		Passenger seats[][] = getSeats();
+		//Find seating for Window seats
 		if(p.getSeatingPreference().equals(SeatingPreferences.WINDOW)) {
 			for (int i = 0; i < MAX_ROWS_FIRST; i++) {
 				if (seats[i][0] == null) {
@@ -33,6 +34,8 @@ public class FirstClass extends GenericSeatingClass{
 					throw new Exception("No Seats Found!");
 				}
 			}
+
+		//Find seating for Aisle seats
 		}else if(p.getSeatingPreference().equals(SeatingPreferences.AISLE)) {
 			for (int i = 0; i < MAX_ROWS_FIRST; i++) {
 				if (seats[i][AISLE_OFFSET] == null) {
@@ -48,6 +51,12 @@ public class FirstClass extends GenericSeatingClass{
 		return null;
 	}
 
+	/**
+	 * Finds seating for multiple passengers
+	 * @param numOfPassengers
+	 * @return a list of seats
+	 * @throws Exception No Seats Found
+	 */
 	public List<Seat> findMatch(int numOfPassengers) throws Exception {
 		Passenger seats[][] = getSeats();
 		List<Seat> seatList = new ArrayList<>();

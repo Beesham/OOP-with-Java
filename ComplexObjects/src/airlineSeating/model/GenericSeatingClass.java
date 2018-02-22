@@ -51,7 +51,11 @@ public class GenericSeatingClass {
 		return seats;
 	}
 
-	//TODO: add doc
+	/**
+	 * Gets the passenger that's asssigned to the seat
+	 * @param s the seat
+	 * @return the passenger
+	 */
 	public Passenger getPassengerInSeat(Seat s) {
 		return seats[s.getRow()][s.getColumn()];
 	}

@@ -23,6 +23,13 @@ public class Airplane {
 		return firstClass;
 	}
 
+	/**
+	 * Adds a passenger(s) to the plane
+	 * @param passengerList list of passengers to add
+	 * @param seatingClass the seating class to add the passengers to
+	 * @param numOfPassengers the number of passengers to add
+	 * @throws Exception No Seats found exception
+	 */
 	public void addPassenger(List<Passenger> passengerList, String seatingClass, int numOfPassengers) throws Exception {
 		if (seatingClass.equals(EconomyClass.ECONOMY_CLASS_NAME)) {
 			if (numOfPassengers == 1) {

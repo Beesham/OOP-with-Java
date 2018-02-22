@@ -31,6 +31,10 @@ public class Main {
 		}while (selection != 3);
 	}
 
+	/**
+	 * Gives a visual representation of all the available seats
+	 * @param airplane the airplane with seating class
+	 */
 	public static void showSeating(Airplane airplane) {
 		GenericSeatingClass economyClass = airplane.getEconomyClass();
 		GenericSeatingClass firstClass = airplane.getFirstClass();
@@ -38,6 +42,7 @@ public class Main {
 		Passenger econClassSeats[][] = economyClass.getSeats();
 		Passenger firstClassSeats[][] = firstClass.getSeats();
 
+		//Displays the available seats for First Class
 		for(int i = 0; i < FirstClass.MAX_ROWS_FIRST; i++) {
 			for(int j = 0; j < FirstClass.MAX_COLS_FIRST; j++) {
 				if(firstClassSeats[i][j] != null) {
@@ -59,6 +64,7 @@ public class Main {
 
 		System.out.println("");
 
+		//Displays the available seating for Economy Class
 		for(int i = 0; i < EconomyClass.MAX_ROWS_ECON; i++) {
 			for(int j = 0; j < EconomyClass.MAX_COLS_ECON; j++) {
 				if(econClassSeats[i][j] != null) {
@@ -79,23 +85,36 @@ public class Main {
 		}
 	}
 
+	/**
+	 * Gathers passenger(s) info and adds to the airplane
+	 * @param airplane the airplane to add to
+	 */
 	public static void addPassenger(Airplane airplane){
+		//Get seating class
 		String seatingClass = promptForSeatingClass();
 		if(seatingClass == null) return;
 
+		//Get number of passengers per seating class
 		int numOfPassengers = promptForAmountOfPassengers();
+
+		//Gets the seating prefs for the passenger(s)
 		String seatPref;
 		if(numOfPassengers == 1) {
 			List<Passenger> passengerList = new ArrayList<>();
+
 			seatPref = promptForSeatingPreference(seatingClass);
 			if(seatPref == null) return;
+
 			Passenger p = new Passenger(seatingClass, seatPref);
 			passengerList.add(p);
+
+			//Try add the passenger to the plane
 			try {
 				airplane.addPassenger(passengerList, seatingClass, numOfPassengers);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 		}else if(numOfPassengers > 1){
 			List<Passenger> passengerList = new ArrayList<>();
 			seatPref = promptForSeatingPreference(seatingClass);
