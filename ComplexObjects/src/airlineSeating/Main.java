@@ -112,7 +112,7 @@ public class Main {
 			try {
 				airplane.addPassenger(passengerList, seatingClass, numOfPassengers);
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println("No Seats Found!");
 			}
 
 		}else if(numOfPassengers > 1){
@@ -127,7 +127,7 @@ public class Main {
 			try {
 				airplane.addPassenger(passengerList, seatingClass, numOfPassengers);
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println("No Seats Found!");
 			}
 		}else{
 			System.out.println("Invalid number of passengers.");
@@ -142,14 +142,25 @@ public class Main {
 		System.out.println("2. Show Seating");
 		System.out.println("3. Quit");
 		System.out.print("Selection: ");
-		return in.nextInt();
+		int inputSelection = 0;
+		try {
+			inputSelection = in.nextInt();
+		}catch (Exception e){
+			return 0;
+		}
+		return inputSelection;
 	}
 
 	public static String promptForSeatingClass() {
 		Scanner in = new Scanner(System.in);
 		System.out.println("\nE/e: Economy Class\nF/f: First Class");
 		System.out.print("What Seating class: ");
-		char selection = in.next().trim().toLowerCase().charAt(0);
+		char selection;
+		try {
+			selection = in.next().trim().toLowerCase().charAt(0);
+		}catch (Exception e){
+			return  null;
+		}
 		if(selection == 'f'){
 			return FirstClass.FIRST_CLASS_NAME;
 		}else if(selection == 'e') {
@@ -163,8 +174,16 @@ public class Main {
 	public static int promptForAmountOfPassengers() {
 		Scanner in = new Scanner(System.in);
 		System.out.print("\n1 ~ 2 (First Class)\n1 ~ 3 (Economy Class)\nNumber of Passengers: ");
-		int numOfPass = in.nextInt();
-		if(numOfPass > 3) {
+		int numOfPass = 0;
+
+		try {
+			numOfPass = in.nextInt();
+		}catch (java.util.InputMismatchException e){
+			System.out.println("Invalid Selection!");
+			return -1;
+		}
+
+		if(numOfPass > 3 || numOfPass < 1) {
 			System.out.println("Invalid Selection!");
 		}else{
 			return numOfPass;
@@ -180,7 +199,15 @@ public class Main {
 			System.out.println("W/w: Window\nC/c: Center\nA/a: Aisle");
 		}
 		System.out.print("Seating preference: ");
-		char seatPref = in.nextLine().trim().toLowerCase().charAt(0);
+		char seatPref;
+
+		try {
+			seatPref = in.nextLine().trim().toLowerCase().charAt(0);
+		}catch (Exception e){
+			System.out.println("Invalid Selection!");
+			return null;
+		}
+
 		if(seatPref == 'w') {
 			return SeatingPreferences.WINDOW;
 		}else if(seatPref == 'c'){
