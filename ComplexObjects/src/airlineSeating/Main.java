@@ -117,9 +117,10 @@ public class Main {
 
 		}else if(numOfPassengers > 1){
 			List<Passenger> passengerList = new ArrayList<>();
-			seatPref = promptForSeatingPreference(seatingClass);
-			if(seatPref == null) return;
+
 			for(int i = 0; i < numOfPassengers; i++) {
+				seatPref = promptForSeatingPreference(seatingClass);
+				if(seatPref == null) return;
 				Passenger p = new Passenger(seatingClass, seatPref);
 				passengerList.add(p);
 			}
@@ -136,7 +137,7 @@ public class Main {
 
 	public static int showMenu() {
 		Scanner in = new Scanner(System.in);
-		System.out.println("Menu");
+		System.out.println("\nMenu");
 		System.out.println("1. Add Passengers");
 		System.out.println("2. Show Seating");
 		System.out.println("3. Quit");
