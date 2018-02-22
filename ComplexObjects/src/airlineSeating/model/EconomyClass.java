@@ -32,7 +32,9 @@ public class EconomyClass extends GenericSeatingClass {
 					return new Seat(i, 0);
 				}else if(seats[i][MAX_COLS_ECON - 1] == null){
 					return new Seat(i, MAX_COLS_ECON - 1);
-				}else{
+				}
+
+				if(i == MAX_ROWS_ECON - 1) {
 					throw new Exception("No Seats Found!");
 				}
 			}
@@ -44,7 +46,9 @@ public class EconomyClass extends GenericSeatingClass {
 					return new Seat(i, AISLE_OFFSET);
 				}else if(seats[i][MAX_COLS_ECON - 1 - AISLE_OFFSET] == null){
 					return new Seat(i, MAX_COLS_ECON - 1 - AISLE_OFFSET);
-				}else{
+				}
+
+				if(i == MAX_ROWS_ECON - 1) {
 					throw new Exception("No Seats Found!");
 				}
 			}
@@ -56,7 +60,9 @@ public class EconomyClass extends GenericSeatingClass {
 					return new Seat(i, CENTER_OFFSET);
 				}else if(seats[i][MAX_COLS_ECON - 1 - CENTER_OFFSET] == null){
 					return new Seat(i, MAX_COLS_ECON - 1 -CENTER_OFFSET);
-				}else{
+				}
+
+				if(i == MAX_ROWS_ECON - 1) {
 					throw new Exception("No Seats Found!");
 				}
 			}
@@ -121,7 +127,9 @@ public class EconomyClass extends GenericSeatingClass {
 						seatList.add(new Seat(i, MAX_COLS_ECON - 3));
 
 						return seatList;
-					} else {
+					}
+
+					if(i == MAX_ROWS_ECON - 1) {
 						throw new Exception("No Seats Found!");
 					}
 				}
@@ -139,7 +147,9 @@ public class EconomyClass extends GenericSeatingClass {
 						seatList.add(new Seat(i, MAX_COLS_ECON - 2));
 
 						return seatList;
-					} else {
+					}
+
+					if(i == MAX_ROWS_ECON - 1) {
 						throw new Exception("No Seats Found!");
 					}
 				}
