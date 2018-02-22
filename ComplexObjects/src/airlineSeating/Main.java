@@ -41,9 +41,17 @@ public class Main {
 		for(int i = 0; i < FirstClass.MAX_ROWS_FIRST; i++) {
 			for(int j = 0; j < FirstClass.MAX_COLS_FIRST; j++) {
 				if(firstClassSeats[i][j] != null) {
-					System.out.print(" * | ");
-				}else {
-					System.out.print(" - | ");
+					if(j == FirstClass.MAX_COLS_FIRST - 1) {
+						System.out.print(" * ");
+					}else{
+						System.out.print(" * |");
+					}
+				}else{
+					if(j == FirstClass.MAX_COLS_FIRST - 1){
+						System.out.print(" - ");
+					}else {
+						System.out.print(" - |");
+					}
 				}
 			}
 			System.out.println("");
@@ -54,9 +62,17 @@ public class Main {
 		for(int i = 0; i < EconomyClass.MAX_ROWS_ECON; i++) {
 			for(int j = 0; j < EconomyClass.MAX_COLS_ECON; j++) {
 				if(econClassSeats[i][j] != null) {
-					System.out.print(" * | ");
-				}else {
-					System.out.print(" - | ");
+					if(j == EconomyClass.MAX_COLS_ECON - 1) {
+						System.out.print(" * ");
+					}else{
+						System.out.print(" * |");
+					}
+				}else{
+					if(j == EconomyClass.MAX_COLS_ECON - 1){
+						System.out.print(" - ");
+					}else {
+						System.out.print(" - |");
+					}
 				}
 			}
 			System.out.println("");
@@ -65,11 +81,14 @@ public class Main {
 
 	public static void addPassenger(Airplane airplane){
 		String seatingClass = promptForSeatingClass();
+		if(seatingClass == null) return;
+
 		int numOfPassengers = promptForAmountOfPassengers();
 		String seatPref;
 		if(numOfPassengers == 1) {
 			List<Passenger> passengerList = new ArrayList<>();
 			seatPref = promptForSeatingPreference(seatingClass);
+			if(seatPref == null) return;
 			Passenger p = new Passenger(seatingClass, seatPref);
 			passengerList.add(p);
 			try {
@@ -79,8 +98,10 @@ public class Main {
 			}
 		}else if(numOfPassengers > 1){
 			List<Passenger> passengerList = new ArrayList<>();
+			seatPref = promptForSeatingPreference(seatingClass);
+			if(seatPref == null) return;
 			for(int i = 0; i < numOfPassengers; i++) {
-				Passenger p = new Passenger(seatingClass, promptForSeatingPreference(seatingClass));
+				Passenger p = new Passenger(seatingClass, seatPref);
 				passengerList.add(p);
 			}
 			try {
@@ -88,6 +109,8 @@ public class Main {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else{
+			System.out.println("Invalid number of passengers.");
 		}
 
 	}
@@ -104,27 +127,35 @@ public class Main {
 
 	public static String promptForSeatingClass() {
 		Scanner in = new Scanner(System.in);
-		System.out.println("E/e: Economy Class\nF/f: First Class");
+		System.out.println("\nE/e: Economy Class\nF/f: First Class");
 		System.out.print("What Seating class: ");
 		char selection = in.next().trim().toLowerCase().charAt(0);
 		if(selection == 'f'){
 			return FirstClass.FIRST_CLASS_NAME;
 		}else if(selection == 'e') {
 			return EconomyClass.ECONOMY_CLASS_NAME;
+		}else{
+			System.out.println("Invalid Selection!");
 		}
 		return null;
 	}
 
 	public static int promptForAmountOfPassengers() {
 		Scanner in = new Scanner(System.in);
-		System.out.print("Number of Passengers: ");
-		return in.nextInt();
+		System.out.print("\n1 ~ 2 (First Class)\n1 ~ 3 (Economy Class)\nNumber of Passengers: ");
+		int numOfPass = in.nextInt();
+		if(numOfPass > 3) {
+			System.out.println("Invalid Selection!");
+		}else{
+			return numOfPass;
+		}
+		return -1;
 	}
 
 	public static String promptForSeatingPreference(String seatingClass) {
 		Scanner in = new Scanner(System.in);
 		if(seatingClass.equals(FirstClass.FIRST_CLASS_NAME)) {
-			System.out.println("W/w: Window\nA/a: Aisle");
+			System.out.println("\nW/w: Window\nA/a: Aisle");
 		}else if(seatingClass.equals(EconomyClass.ECONOMY_CLASS_NAME)) {
 			System.out.println("W/w: Window\nC/c: Center\nA/a: Aisle");
 		}
@@ -136,6 +167,8 @@ public class Main {
 			return SeatingPreferences.CENTER;
 		}else if(seatPref == 'a') {
 			return SeatingPreferences.AISLE;
+		}else{
+			System.out.println("Invalid Selection!");
 		}
 		return null;
 	}
