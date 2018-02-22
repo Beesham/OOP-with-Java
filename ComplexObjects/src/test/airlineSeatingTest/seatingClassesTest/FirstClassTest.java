@@ -12,6 +12,7 @@ import java.util.List;
 public class FirstClassTest {
 	public static void main(String[] args) {
 		testMultiPassenger();
+		testSinglePassenger();
 	}
 
 	public static void testMultiPassenger() {

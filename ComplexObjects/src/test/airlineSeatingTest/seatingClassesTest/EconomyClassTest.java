@@ -15,6 +15,7 @@ import java.util.List;
 public class EconomyClassTest {
 	public static void main(String[] args) {
 		testMultiPassenger();
+		testSinglePassenger();
 	}
 
 	public static void testMultiPassenger() {
