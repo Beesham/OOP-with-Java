@@ -1,5 +1,7 @@
 package formatter;
 
+import java.text.DecimalFormat;
+
 /**
  * @author Beesham Sarendranauth
  * Formats a number using commas every 3 digits
@@ -7,6 +9,7 @@ package formatter;
 public class DecimalSeparatorFormatter implements NumberFormatter {
 	@Override
 	public String format(int n) {
-		return null;
+		DecimalFormat formatter = new DecimalFormat("#,###");
+		return formatter.format(n);
 	}
 }
