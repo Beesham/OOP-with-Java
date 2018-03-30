@@ -1,5 +1,6 @@
 package test.formatterTest;
 
+import formatter.DecimalSeparatorFormatter;
 import formatter.DefaultFormatter;
 
 /**
@@ -8,10 +9,10 @@ import formatter.DefaultFormatter;
  */
 public class FormatterTest {
 	public static void main(String[] args) {
-		DefaultFormatter defaultFormatter = new DefaultFormatter();
-		System.out.println("Expected: 5 Actual: " + defaultFormatter.format(5));
-		System.out.println("Expected: 1,000 Actual: " + defaultFormatter.format(1000));
-		System.out.println("Expected: 1,000,000 Actual: " + defaultFormatter.format(1000000));
+		DecimalSeparatorFormatter decimalSeparatorFormatter = new DecimalSeparatorFormatter();
+		System.out.println("Expected: 5 Actual: " + decimalSeparatorFormatter.format(5));
+		System.out.println("Expected: 1,000 Actual: " + decimalSeparatorFormatter.format(1000));
+		System.out.println("Expected: 1,000,000 Actual: " + decimalSeparatorFormatter.format(1000000));
 
 
 	}
