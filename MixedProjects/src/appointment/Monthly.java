@@ -7,6 +7,7 @@ package appointment;
 public class Monthly extends Appointment{
 	@Override
 	public boolean occursOn(int year, int month, int day) {
-		return super.occursOn(year, month, day);
+		if(super.getDate().getDay() == day) return true;
+		else return false;
 	}
 }

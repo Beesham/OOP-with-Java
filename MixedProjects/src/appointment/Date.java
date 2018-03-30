@@ -42,7 +42,7 @@ public class Date implements Comparable{
 
 		if(d.getYear() < year)
 			return -1;
-		else if(d.getYear() > 0)
+		else if(d.getYear() > year)
 			return 1;
 
 		if(d.getMonth() < month)
