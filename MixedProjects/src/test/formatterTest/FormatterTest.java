@@ -1,5 +1,6 @@
 package test.formatterTest;
 
+import formatter.AccountingFormatter;
 import formatter.DecimalSeparatorFormatter;
 import formatter.DefaultFormatter;
 
@@ -14,6 +15,8 @@ public class FormatterTest {
 		System.out.println("Expected: 1,000 Actual: " + decimalSeparatorFormatter.format(1000));
 		System.out.println("Expected: 1,000,000 Actual: " + decimalSeparatorFormatter.format(1000000));
 
+		AccountingFormatter accountingFormatter = new AccountingFormatter();
+		System.out.println("Expected: (5) Actual: " + accountingFormatter.format(-5));
 
 	}
 }
