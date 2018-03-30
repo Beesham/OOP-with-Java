@@ -30,4 +30,9 @@ public class Appointment {
 		if(date.compareTo(d) == 0) return true;
 		else return false;
 	}
+
+	@Override
+	public String toString() {
+		return getDate().toString() + "\n" + getDescription();
+	}
 }
