@@ -1,8 +1,12 @@
+package test.csvReaderTest;
+
+import csvReader.CSVReader;
+
 /**
    This program demonstrates and tests methods of the CSVReader class.
 */
-public class CSVReaderTester
-{
+public class CSVReaderTester {
+
    public static void main(String[] args)
    {
       CSVReader reader1 = new CSVReader("att2007.csv");
