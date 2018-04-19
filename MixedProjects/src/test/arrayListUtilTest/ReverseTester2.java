@@ -1,10 +1,12 @@
+package test.arrayListUtilTest;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
    This program demonstrates reversing an arraylist
 */
-public class ReverseTester
-{
+public class ReverseTester2 {
    public static void main(String[] args)
    {
       ArrayList<String> a = new ArrayList<>();
@@ -12,7 +14,7 @@ public class ReverseTester
       a.add("orange");
       a.add("pear");
       a.add("banana");
-      ArrayList<String> b = ArrayListUtil.reverse(a);
+      ArrayList<String> b = ArrayListUtil2.reverse(a);
 
       System.out.println("Original: " + a);
       System.out.println("Expected: [apple, orange, pear, banana]");
@@ -21,3 +23,18 @@ public class ReverseTester
    }
 
 }
+
+class ArrayListUtil2 {
+
+   /**
+    * Reverses an arraylist without modifying its contents
+    * @param arrayList
+    * @return the reversed list
+    */
+   public static ArrayList reverse(ArrayList arrayList) {
+      ArrayList newArrayList = (ArrayList) arrayList.clone();
+      Collections.reverse(newArrayList);
+      return newArrayList;
+   }
+}
+
